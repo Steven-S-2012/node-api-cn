@@ -37,5 +37,5 @@ async function callStat() {
 
 如果原本就有 `original[util.promisify.custom]` 属性, `promisify` 会返回它的值， 详见 [Custom promisified functions][].
 
-`promisify()` 会假定在所有情况下 `original` 是一个函数且最后的参数是回调函数。如果`original`不是一个函数，那么`promisify()`将抛出一个错误。如果`original`是一个函数但其最后一个参数不是一个错误优先的回调函数，它仍将被传入一个错误优先的回调函数作为最后一个参数。 
+`promisify()` 会假定在所有情况下 `original` 是一个函数且最后的参数是回调函数。如果`original`不是一个函数，那么`promisify()`将抛出一个错误。如果`original`是一个函数但其最后一个参数不是一个错误优先的回调函数，它仍将被传入一个异常优先的回调函数作为最后一个参数。 
 
