@@ -5,7 +5,7 @@ added: v8.0.0
 * `original` {Function}
 * Returns: {Function}
 
-让一个遵循异常优先的回调风格的函数， 即 `(err, value) => ...` 回调函数是最后一个参数, 返回一个返回值是一个 promise 版本的函数。
+采用一个函数作为最后一个参数，并返回一个返回值为promise的版本。作为函数参数的函数遵循异常优先的回调风格，例如`(err,value) => {...}`。
 
 例如：
 
@@ -35,7 +35,7 @@ async function callStat() {
 }
 ```
 
-如果原本就有 `original[util.promisify.custom]` 属性, `promisify` 会返回它的值， 查阅 [Custom promisified functions][].
+如果原本就有 `original[util.promisify.custom]` 属性, `promisify` 会返回它的值， 详见 [Custom promisified functions][].
 
-`promisify()` 会在所有情况下假定 `original` 是一个最后的参数是回调函数的函数，如果它不是，那么返回的函数的返回值为 undefined。 
+`promisify()` 会假定在所有情况下 `original` 是一个函数且最后的参数是回调函数。如果`original`不是一个函数，那么`promisify()`将抛出一个错误。如果`original`是一个函数但其最后一个参数不是一个错误优先的回调函数，它仍将被传入一个错误优先的回调函数作为最后一个参数。 
 
